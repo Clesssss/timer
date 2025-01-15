@@ -19,7 +19,7 @@ countdownInterval = setInterval(() => {
 The JavaScript built-in function setInterval repeatedly executes the code inside its callback function at a specified time interval. In this case, the interval is set to 1000 milliseconds (1 second), meaning the callback function will be called every second.   
 In this implementation, the callback function updates the countdown by decrementing the timeLeft variable on each iteration. This ensures the countdown value decreases by 1 every second until it reaches zero.
 
-
+<br>
 
 # Highlights
 
