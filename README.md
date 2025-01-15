@@ -1,6 +1,7 @@
 # Timer
 
 ### Built with HTML, JavaScript, and Tailwind CSS.  
+### Website is live at https://clesssss.github.io/timer/
 <br>
 
 ## Code Explanation
