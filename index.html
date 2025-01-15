@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Cabin', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="h-screen bg-black flex items-center justify-center">
+    <div class="p-8 text-center">
+        <h1 class="text-7xl font-bold mb-8 text-gray-50">Countdown Timer</h1>
+        <div class="px-80">
+            <div class="mb-4">
+                <input type="number" id="input" class="w-full px-4 py-2 border border-gray-300 rounded-md text-center"
+                    placeholder="Enter seconds" />
+            </div>
+            <button id="startButton" class="border text-gray-50 text-semibold w-full py-2 rounded-md hover:bg-white hover:text-gray-950 transition-colors">
+                Start Countdown
+            </button>
+            <div id="countdown" class="mt-6 text-xl font-semibold text-gray-50">Time is up!</div>
+        </div>
+    </div>
+    <script>
+        const startButton = document.getElementById('startButton');
+        const countdown = document.getElementById('countdown');
+        let countdownInterval;
+
+        startButton.addEventListener('click', () => {
+            clearInterval(countdownInterval);
+
+            const input = document.getElementById('input').value;
+            let timeLeft = parseInt(input, 10);
+
+            if (isNaN(timeLeft) || timeLeft <= 0) {
+                timerDisplay.textContent = 'Please enter a valid number of seconds!';
+                return;
+            }
+
+            countdown.textContent = `${timeLeft}s`;
+
+            countdownInterval = setInterval(() => {
+                timeLeft -= 1;
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    countdown.textContent = 'Time is up!';
+                } else {
+                    countdown.textContent = `${timeLeft}s`;
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
